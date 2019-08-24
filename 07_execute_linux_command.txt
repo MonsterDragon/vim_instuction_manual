@@ -1,0 +1,6 @@
+一、:!command
+	1、:!date
+	显示时间
+二、VIM 执行命令，并且添加结果至操作文本光标处
+:r !command
+Sat Aug 24 15:36:23 CST 2019
