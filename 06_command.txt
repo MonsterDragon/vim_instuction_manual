@@ -1,0 +1,38 @@
+一、命令模式
+	1、显示行号
+	:set nu
+	2、取消行号
+	:set nonu
+	3、定位到n行
+	:n
+二、关键字查找
+	1、匹配目标字符串
+	/{目标字符串}
+三、大小写的区分
+	1、不区分大小的查询
+	:set ic
+	2、区分大小写的查询
+	:set noic
+四、删除多行文本
+	1、n1 和 n2 指的是起始行号和结束行号，d 是删除关键字
+	:n1,n2d
+五、处理文本替换
+	1、:{作用范围}s/{目标}/{替换}/{替换的标志}
+	作用范围分为当前行、全文、选区等等
+	2、将会把当前光标所在行的 zempty 替换成 handsome
+	:s/zempty/handsome/g
+	3、将会把全文中的 zempty 替换成 handsome
+	:%s/zempty/handsome/g
+	4、这里的 n1 和 n2 值得是行号，将会替换掉 n1 到 n2 的所有 zempty 为 handsome
+	:n1,n2s/zempty/handsome/g
+	5、可视模式 (Visual-mode) 下选区中的替换操作（可视模式下文会谈到），可视模式下输入：会自动补全 :'<,'> 这个是可视范围下的操作范围，类似于 % 和 n1,n2，代表操作的文本范围，上面的例子就是替换掉可视区域的 zempty 为 handsome。
+	:'<,'>s/zempty/handsome/g
+	6、空替换标志表示只替换从光标位置开始，目标的第一次出现。作用于当前行，从光标处开始查找替换，仅仅替换第一次匹配 zempty 的地方为handsome
+	:s/zempty/handsome
+	7、替换掉文件中所有行第一次出现 zempty 的地方为 handsome 。
+	:%s/zempty/handsome
+	8、i 表示大小写不敏感查找，I 表示大小写敏感。替换掉所有行第一个出现 zempty (不区分大小写) 为 handsome
+	:%s/zempty/handsome/i
+	9、替换掉所有行出现 zempty (不区分大小写) 为 handsome 
+	c 表示需要确认，例如全局查找"zempty"替换为"handsome"并且需要确认
+	:%s/zempty/handsome/gc
